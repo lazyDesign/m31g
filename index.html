@@ -874,25 +874,26 @@
             display: flex;
             gap: 1rem;
             padding: 0.5rem 0;
-            animation: marquee 30s linear infinite;
+            animation: marquee var(--marquee-duration, 30s) linear infinite;
+            will-change: transform;
         }
 
         .marquee-row:nth-child(2) {
             animation-direction: reverse;
-            animation-duration: 35s;
+            --marquee-duration: 35s;
         }
 
         .marquee-row:nth-child(3) {
-            animation-duration: 28s;
+            --marquee-duration: 28s;
         }
 
         .marquee-row:nth-child(4) {
             animation-direction: reverse;
-            animation-duration: 32s;
+            --marquee-duration: 32s;
         }
 
         .marquee-row:nth-child(5) {
-            animation-duration: 26s;
+            --marquee-duration: 26s;
         }
 
         @keyframes marquee {
@@ -900,7 +901,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-1 * var(--marquee-width, 50%)));
             }
         }
 
@@ -1666,32 +1667,10 @@
                 <div class="marquee-item"><span data-lang="zh">摄影器材</span><span data-lang="en">Photography</span></div>
                 <div class="marquee-item"><span data-lang="zh">手机配件</span><span data-lang="en">Accessories</span></div>
                 <div class="marquee-item"><span data-lang="zh">游戏外设</span><span data-lang="en">Gaming Gear</span></div>
-                <!-- Duplicate for seamless loop -->
-                <div class="marquee-item"><span data-lang="zh">便携电源</span><span data-lang="en">Portable Power</span></div>
-                <div class="marquee-item"><span data-lang="zh">智能穿戴</span><span data-lang="en">Wearables</span></div>
-                <div class="marquee-item"><span data-lang="zh">智能家居</span><span data-lang="en">Smart Home</span></div>
-                <div class="marquee-item"><span data-lang="zh">音频设备</span><span data-lang="en">Audio</span></div>
-                <div class="marquee-item"><span data-lang="zh">桌面配件</span><span data-lang="en">Desktop Gear</span></div>
-                <div class="marquee-item"><span data-lang="zh">健身科技</span><span data-lang="en">Fitness Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">无人机</span><span data-lang="en">Drones</span></div>
-                <div class="marquee-item"><span data-lang="zh">摄影器材</span><span data-lang="en">Photography</span></div>
-                <div class="marquee-item"><span data-lang="zh">手机配件</span><span data-lang="en">Accessories</span></div>
-                <div class="marquee-item"><span data-lang="zh">游戏外设</span><span data-lang="en">Gaming Gear</span></div>
             </div>
 
             <!-- Row 2 -->
             <div class="marquee-row">
-                <div class="marquee-item"><span data-lang="zh">智能手表</span><span data-lang="en">Smartwatches</span></div>
-                <div class="marquee-item"><span data-lang="zh">投影设备</span><span data-lang="en">Projectors</span></div>
-                <div class="marquee-item"><span data-lang="zh">安防设备</span><span data-lang="en">Security</span></div>
-                <div class="marquee-item"><span data-lang="zh">医疗健康</span><span data-lang="en">Health Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">教育科技</span><span data-lang="en">EdTech</span></div>
-                <div class="marquee-item"><span data-lang="zh">工具设备</span><span data-lang="en">Tools</span></div>
-                <div class="marquee-item"><span data-lang="zh">电动出行</span><span data-lang="en">E-Mobility</span></div>
-                <div class="marquee-item"><span data-lang="zh">3D打印</span><span data-lang="en">3D Printing</span></div>
-                <div class="marquee-item"><span data-lang="zh">宠物科技</span><span data-lang="en">Pet Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">厨房电器</span><span data-lang="en">Kitchen Tech</span></div>
-                <!-- Duplicate -->
                 <div class="marquee-item"><span data-lang="zh">智能手表</span><span data-lang="en">Smartwatches</span></div>
                 <div class="marquee-item"><span data-lang="zh">投影设备</span><span data-lang="en">Projectors</span></div>
                 <div class="marquee-item"><span data-lang="zh">安防设备</span><span data-lang="en">Security</span></div>
@@ -1716,17 +1695,6 @@
                 <div class="marquee-item"><span data-lang="zh">车载设备</span><span data-lang="en">Car Tech</span></div>
                 <div class="marquee-item"><span data-lang="zh">婴儿科技</span><span data-lang="en">Baby Tech</span></div>
                 <div class="marquee-item"><span data-lang="zh">睡眠科技</span><span data-lang="en">Sleep Tech</span></div>
-                <!-- Duplicate -->
-                <div class="marquee-item"><span data-lang="zh">户外装备</span><span data-lang="en">Outdoor Gear</span></div>
-                <div class="marquee-item"><span data-lang="zh">照明设备</span><span data-lang="en">Lighting</span></div>
-                <div class="marquee-item"><span data-lang="zh">个人护理</span><span data-lang="en">Personal Care</span></div>
-                <div class="marquee-item"><span data-lang="zh">VR/AR设备</span><span data-lang="en">VR/AR</span></div>
-                <div class="marquee-item"><span data-lang="zh">机器人</span><span data-lang="en">Robotics</span></div>
-                <div class="marquee-item"><span data-lang="zh">环境监测</span><span data-lang="en">Environment</span></div>
-                <div class="marquee-item"><span data-lang="zh">智能眼镜</span><span data-lang="en">Smart Glasses</span></div>
-                <div class="marquee-item"><span data-lang="zh">车载设备</span><span data-lang="en">Car Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">婴儿科技</span><span data-lang="en">Baby Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">睡眠科技</span><span data-lang="en">Sleep Tech</span></div>
             </div>
 
             <!-- Row 4 -->
@@ -1741,32 +1709,10 @@
                 <div class="marquee-item"><span data-lang="zh">园艺科技</span><span data-lang="en">Garden Tech</span></div>
                 <div class="marquee-item"><span data-lang="zh">旅行装备</span><span data-lang="en">Travel Gear</span></div>
                 <div class="marquee-item"><span data-lang="zh">运动相机</span><span data-lang="en">Action Cameras</span></div>
-                <!-- Duplicate -->
-                <div class="marquee-item"><span data-lang="zh">清洁设备</span><span data-lang="en">Cleaning</span></div>
-                <div class="marquee-item"><span data-lang="zh">储能设备</span><span data-lang="en">Energy Storage</span></div>
-                <div class="marquee-item"><span data-lang="zh">键盘鼠标</span><span data-lang="en">Keyboards</span></div>
-                <div class="marquee-item"><span data-lang="zh">显示器</span><span data-lang="en">Monitors</span></div>
-                <div class="marquee-item"><span data-lang="zh">存储设备</span><span data-lang="en">Storage</span></div>
-                <div class="marquee-item"><span data-lang="zh">网络设备</span><span data-lang="en">Networking</span></div>
-                <div class="marquee-item"><span data-lang="zh">电动工具</span><span data-lang="en">Power Tools</span></div>
-                <div class="marquee-item"><span data-lang="zh">园艺科技</span><span data-lang="en">Garden Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">旅行装备</span><span data-lang="en">Travel Gear</span></div>
-                <div class="marquee-item"><span data-lang="zh">运动相机</span><span data-lang="en">Action Cameras</span></div>
             </div>
 
             <!-- Row 5 -->
             <div class="marquee-row">
-                <div class="marquee-item"><span data-lang="zh">美容仪器</span><span data-lang="en">Beauty Devices</span></div>
-                <div class="marquee-item"><span data-lang="zh">按摩设备</span><span data-lang="en">Massage</span></div>
-                <div class="marquee-item"><span data-lang="zh">空气净化</span><span data-lang="en">Air Purifiers</span></div>
-                <div class="marquee-item"><span data-lang="zh">水净化</span><span data-lang="en">Water Purifiers</span></div>
-                <div class="marquee-item"><span data-lang="zh">咖啡设备</span><span data-lang="en">Coffee Tech</span></div>
-                <div class="marquee-item"><span data-lang="zh">电动滑板</span><span data-lang="en">E-Skateboards</span></div>
-                <div class="marquee-item"><span data-lang="zh">电动自行车</span><span data-lang="en">E-Bikes</span></div>
-                <div class="marquee-item"><span data-lang="zh">智能锁</span><span data-lang="en">Smart Locks</span></div>
-                <div class="marquee-item"><span data-lang="zh">温控设备</span><span data-lang="en">Climate Control</span></div>
-                <div class="marquee-item"><span data-lang="zh">激光设备</span><span data-lang="en">Laser Tech</span></div>
-                <!-- Duplicate -->
                 <div class="marquee-item"><span data-lang="zh">美容仪器</span><span data-lang="en">Beauty Devices</span></div>
                 <div class="marquee-item"><span data-lang="zh">按摩设备</span><span data-lang="en">Massage</span></div>
                 <div class="marquee-item"><span data-lang="zh">空气净化</span><span data-lang="en">Air Purifiers</span></div>
@@ -1929,6 +1875,30 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // Seamless marquee initialization
+        // Wait for fonts to load before calculating widths
+        document.fonts.ready.then(() => {
+            document.querySelectorAll('.marquee-row').forEach(row => {
+                // Clone content for seamless loop
+                const content = row.innerHTML;
+                row.innerHTML = content + content;
+
+                // Calculate the width of the first half (original content)
+                const items = row.querySelectorAll('.marquee-item');
+                const halfCount = items.length / 2;
+                let halfWidth = 0;
+
+                for (let i = 0; i < halfCount; i++) {
+                    halfWidth += items[i].offsetWidth;
+                }
+                // Add gap spacing (1rem = 16px per gap, gaps = halfCount)
+                halfWidth += halfCount * 16;
+
+                // Set the custom property for exact pixel animation
+                row.style.setProperty('--marquee-width', `${halfWidth}px`);
+            });
         });
     </script>
 </body>
