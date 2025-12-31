@@ -21,3 +21,9 @@
 **Action:** Updating copywriting to remove "——" dashes and polish wording, then publishing to GitHub.
 
 ---
+
+**User:** for chinese, you not using full-width symbol i think? mkae it full width one like the others.
+
+**Action:** Checking and fixing Chinese punctuation to use full-width symbols.
+
+---
