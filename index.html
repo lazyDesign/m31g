@@ -255,7 +255,7 @@
             margin-bottom: 2rem;
             text-transform: uppercase;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.3s;
+            visibility: hidden;
         }
 
         .zh .hero-label {
@@ -271,7 +271,7 @@
             line-height: 1.1;
             margin-bottom: 1.5rem;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.5s;
+            visibility: hidden;
         }
 
         .zh .hero h1 {
@@ -297,7 +297,7 @@
             margin-bottom: 3rem;
             font-weight: 300;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.7s;
+            visibility: hidden;
         }
 
         .zh .hero-subtitle {
@@ -309,8 +309,11 @@
         .hero-cta-group {
             display: flex;
             gap: 1.5rem;
+        }
+
+        .hero .hero-cta-group {
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 0.9s;
+            visibility: hidden;
         }
 
         .btn-primary {
@@ -369,7 +372,7 @@
             font-size: 0.7rem;
             letter-spacing: 0.2em;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards 1.2s;
+            visibility: hidden;
         }
 
         .zh .scroll-indicator {
@@ -1818,6 +1821,51 @@
             star.style.animationDuration = 2 + Math.random() * 3 + 's';
             starField.appendChild(star);
         }
+
+        // GSAP Hero Reveal Animation
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        // Get current language elements
+        const currentLang = document.body.classList.contains('en') ? 'en' : 'zh';
+
+        heroTl
+            // Label fades in with slight blur effect
+            .to('.hero-label', {
+                visibility: 'visible',
+                opacity: 1,
+                duration: 0.8,
+                y: 0,
+                delay: 0.3
+            })
+            // Main headline - dramatic scale and fade
+            .fromTo('.hero h1',
+                { y: 60, opacity: 0, scale: 0.95, visibility: 'hidden' },
+                { y: 0, opacity: 1, scale: 1, visibility: 'visible', duration: 1.2 },
+                '-=0.4'
+            )
+            // Subtitle slides up
+            .fromTo('.hero-subtitle',
+                { y: 40, opacity: 0, visibility: 'hidden' },
+                { y: 0, opacity: 1, visibility: 'visible', duration: 0.9 },
+                '-=0.7'
+            )
+            // Buttons stagger in from below with slight scale
+            .fromTo('.hero .hero-cta-group',
+                { y: 30, opacity: 0, visibility: 'hidden' },
+                { y: 0, opacity: 1, visibility: 'visible', duration: 0.8 },
+                '-=0.5'
+            )
+            .fromTo('.hero .hero-cta-group button',
+                { y: 20, opacity: 0, scale: 0.9 },
+                { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.15 },
+                '-=0.6'
+            )
+            // Scroll indicator fades in last
+            .fromTo('.scroll-indicator',
+                { y: 20, opacity: 0, visibility: 'hidden' },
+                { y: 0, opacity: 1, visibility: 'visible', duration: 0.8 },
+                '-=0.3'
+            );
 
         // Language Switcher
         const langButtons = document.querySelectorAll('[data-lang-switch]');

@@ -57,3 +57,9 @@
 **Action:** Changing page title to just "M31G".
 
 ---
+
+**User:** use gsap, for the hero section, the very top one, give it a reveal, i like the star background animation, dont change that, just make the reveal a bit fancy.
+
+**Action:** Adding GSAP reveal animation to hero section.
+
+---
